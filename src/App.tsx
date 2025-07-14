@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion} from 'framer-motion'
 import { FaUser, FaGraduationCap, FaProjectDiagram, FaTools, FaEnvelope, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaInstagram, FaArrowDown } from 'react-icons/fa'
 import { SiCplusplus, SiFlask, SiOpenai } from 'react-icons/si'
 import profileImg from './assets/profile.jpeg'
@@ -13,7 +13,6 @@ const leafImages = [leaf1, leaf2, leaf3, leaf4];
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const { scrollYProgress } = useScroll()
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
