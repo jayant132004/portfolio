@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaUser, FaGraduationCap, FaProjectDiagram, FaTools, FaEnvelope, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaInstagram, FaArrowDown } from 'react-icons/fa'
 import { SiCplusplus, SiFlask, SiOpenai } from 'react-icons/si'
 import profileImg from './assets/profile.jpeg'
@@ -14,10 +12,8 @@ import leaf4 from './assets/leaf4.svg'
 const leafImages = [leaf1, leaf2, leaf3, leaf4];
 
 function App() {
-  const [count, setCount] = useState(0)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -26,15 +22,6 @@ function App() {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
-
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
 
   const skillVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 50 },
