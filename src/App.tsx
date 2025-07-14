@@ -6,6 +6,12 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { FaUser, FaGraduationCap, FaProjectDiagram, FaTools, FaEnvelope, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaInstagram, FaArrowDown } from 'react-icons/fa'
 import { SiCplusplus, SiFlask, SiOpenai } from 'react-icons/si'
 import profileImg from './assets/profile.jpeg'
+import leaf1 from './assets/leaf1.svg'
+import leaf2 from './assets/leaf2.svg'
+import leaf3 from './assets/leaf3.svg'
+import leaf4 from './assets/leaf4.svg'
+
+const leafImages = [leaf1, leaf2, leaf3, leaf4];
 
 function App() {
   const [count, setCount] = useState(0)
@@ -51,29 +57,42 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFEAD8 0%, #F8D7C8 50%, #FFEAD8 100%)' }}>
-      {/* Animated Background Particles */}
+      {/* Animated Background Leaves */}
       <div className="fixed inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full"
-            style={{
-              background: `rgba(${155 + i * 5}, ${23 + i * 3}, ${126 - i * 2}, 0.3)`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => {
+          const leaf = leafImages[Math.floor(Math.random() * leafImages.length)];
+          const size = 20 + Math.random() * 20;
+          const rotate = Math.random() * 360;
+          return (
+            <motion.img
+              key={i}
+              src={leaf}
+              alt="leaf"
+              style={{
+                width: size,
+                height: size,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                position: 'absolute',
+                opacity: 0.7 + Math.random() * 0.3,
+                pointerEvents: 'none',
+                zIndex: 0,
+              }}
+              animate={{
+                y: [0, -100 - Math.random() * 100, 0],
+                x: [0, Math.random() * 50 - 25, 0],
+                rotate: [rotate, rotate + 60, rotate - 60, rotate],
+                opacity: [0.7, 1, 0.7],
+              }}
+              transition={{
+                duration: 6 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+                ease: 'easeInOut',
+              }}
+            />
+          )
+        })}
       </div>
 
       {/* Mouse Follower */}
@@ -93,7 +112,7 @@ function App() {
         className="w-full flex justify-center items-center px-8 py-4 fixed top-0 z-40"
         style={{ 
           background: 'rgba(155, 23, 126, 0.97)', 
-          borderBottom: '2px solid rgba(232, 152, 138, 0.8)',
+          borderBottom: '2px solid #E8988A',
           boxShadow: '0 6px 24px 0 rgba(155, 23, 126, 0.10)',
           borderRadius: '0 0 1.5rem 1.5rem',
           left: 0,
@@ -243,7 +262,7 @@ function App() {
             transition={{ delay: 1, duration: 0.8 }}
             style={{ color: '#2A1458' }}
           >
-            Web Developer
+            Software Engineer
           </motion.p>
 
           <motion.p 
@@ -253,7 +272,7 @@ function App() {
             transition={{ delay: 1.2, duration: 0.8 }}
             style={{ color: '#9B177E' }}
           >
-            I am a passionate web developer skilled in Python, C++, React, Flask, SQL, Node.js, and Generative AI. 
+            I am a passionate web developer  and a software engineer skilled in Python, C++, React, Flask, SQL, Node.js, and Generative AI. 
             I love building innovative, performant web applications and exploring the latest in technology.
           </motion.p>
 
@@ -458,6 +477,11 @@ function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
             {[
+              {
+                title: "Heart Disease Prediction",
+                description: "Built a multi-class classifier using Logistic Regression, Naive Bayes, SVM, and ANN on the UCI Cleveland dataset. Evaluated using F1-score, AUC, and confusion matrix.",
+                link: "#"
+              },
               {
                 title: "ER to SQL Queries with AI",
                 description: "A tool that converts Entity-Relationship diagrams into optimized SQL queries using artificial intelligence, streamlining database development.",
