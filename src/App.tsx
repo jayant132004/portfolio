@@ -3,7 +3,7 @@ import './App.css'
 import { motion} from 'framer-motion'
 import { FaUser, FaGraduationCap, FaProjectDiagram, FaTools, FaEnvelope, FaPython, FaReact, FaNodeJs, FaDatabase, FaGithub, FaInstagram, FaArrowDown } from 'react-icons/fa'
 import { SiCplusplus, SiFlask, SiOpenai } from 'react-icons/si'
-import profileImg from './assets/profile.jpeg'
+import profileImg from './assets/photo.jpeg'
 import leaf1 from './assets/leaf1.svg'
 import leaf2 from './assets/leaf2.svg'
 import leaf3 from './assets/leaf3.svg'
@@ -95,7 +95,7 @@ function App() {
 
       {/* Top Navbar */}
       <motion.nav 
-        className="w-full flex justify-center items-center px-8 py-4 fixed top-0 z-40"
+        className="w-full flex justify-center items-center px-2 sm:px-4 md:px-8 py-3 md:py-4 fixed top-0 z-40"
         style={{ 
           background: 'rgba(155, 23, 126, 0.97)', 
           borderBottom: '2px solid #E8988A',
@@ -110,7 +110,7 @@ function App() {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <ul className="flex gap-8 text-lg font-medium w-full justify-center">
+        <ul className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 text-base sm:text-lg font-medium w-full justify-center overflow-x-auto">
           {[
             { href: "#home", icon: <FaUser />, text: "Home" },
             { href: "#skills", icon: <FaTools />, text: "Skills" },
@@ -139,11 +139,11 @@ function App() {
       </motion.nav>
 
       {/* Main Content */}
-      <div className="pt-24" style={{ color: '#2A1458' }}>
+      <div className="pt-24 md:pt-28" style={{ color: '#2A1458' }}>
         {/* Hero Section */}
         <motion.section
           id="home"
-          className="relative flex flex-col items-center justify-center py-20 overflow-hidden min-h-screen"
+          className="relative flex flex-col items-center justify-center py-12 sm:py-16 md:py-20 overflow-hidden min-h-[70vh] md:min-h-screen"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -167,8 +167,8 @@ function App() {
 
           {/* Profile Image with Enhanced Effects */}
           <motion.div 
-            className="relative flex items-center justify-center mb-8"
-            style={{ width: '280px', height: '280px' }}
+            className="relative flex items-center justify-center mb-10 sm:mb-11"
+            style={{ width: '180px', height: '180px' }}
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
@@ -213,8 +213,8 @@ function App() {
             
             <motion.img
               src={profileImg}
-              alt="Profile"
-              className="w-72 h-72 rounded-full border-4 z-10 shadow-2xl"
+              alt="Jayant Chaudhary"
+              className="aspect-square w-36 h-36 sm:w-48 sm:h-48 md:w-72 md:h-72 rounded-full border-4 z-10 shadow-2xl object-cover"
               style={{ 
                 borderColor: '#E8988A',
                 background: '#FFEAD8',
@@ -230,7 +230,7 @@ function App() {
 
           {/* Name with Typing Effect */}
           <motion.h1 
-            className="text-6xl md:text-7xl font-extrabold mb-4 drop-shadow-lg"
+            className="text-3xl sm:text-4xl md:text-6xl md:mb-4 font-extrabold mb-2 drop-shadow-lg text-center"
             style={{ color: '#9B177E' }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -242,7 +242,7 @@ function App() {
           </motion.h1>
 
           <motion.p 
-            className="text-3xl md:text-4xl font-medium mb-6"
+            className="text-lg sm:text-2xl md:text-3xl font-medium mb-4 md:mb-6 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
@@ -252,24 +252,24 @@ function App() {
           </motion.p>
 
           <motion.p 
-            className="max-w-2xl text-center text-xl mb-8 leading-relaxed"
+            className="max-w-xs sm:max-w-xl md:max-w-2xl text-center text-base sm:text-lg md:text-xl mb-6 md:mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
             style={{ color: '#9B177E' }}
           >
-            I am a passionate web developer  and a software engineer skilled in Python, C++, React, Flask, SQL, Node.js, and Generative AI. 
-            I love building innovative, performant web applications and exploring the latest in technology.
+            I am a passionate web developer and a software engineer skilled in Python, C++, React, Flask, SQL, Node.js, and Generative AI. I love building innovative, performant web applications and exploring the latest in technology.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a 
               href="#contact" 
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg shadow-2xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg shadow-2xl transition-all duration-300 hover:scale-105"
               style={{ 
                 background: 'linear-gradient(135deg, #E8988A 0%, #9B177E 100%)',
                 color: '#FFEAD8'
@@ -283,22 +283,38 @@ function App() {
               Contact Me
               <FaArrowDown className="animate-bounce" />
             </motion.a>
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-base sm:text-lg shadow-2xl transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #9B177E 0%, #E8988A 100%)',
+                color: '#FFEAD8'
+              }}
+              whileHover={{
+                boxShadow: '0 20px 40px rgba(155, 23, 126, 0.4)',
+                y: -5
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download Resume
+            </motion.a>
           </motion.div>
 
           {/* Scroll Indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <FaArrowDown className="text-2xl" style={{ color: '#9B177E' }} />
+            <FaArrowDown className="text-xl md:text-2xl" style={{ color: '#9B177E' }} />
           </motion.div>
         </motion.section>
 
         {/* Skills Section */}
         <motion.section
           id="skills"
-          className="relative py-20 flex flex-col items-center justify-center overflow-hidden"
+          className="relative py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -306,7 +322,7 @@ function App() {
           style={{ background: 'linear-gradient(135deg, #FFEAD8 0%, #F8D7C8 100%)' }}
         >
           <motion.h2 
-            className="text-5xl font-bold mb-12"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -316,7 +332,7 @@ function App() {
             Skills & Tech Stack
           </motion.h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 w-full max-w-6xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-8 w-full max-w-6xl">
             {[
               { icon: <FaPython />, name: "Python" },
               { icon: <SiCplusplus />, name: "C++" },
@@ -362,7 +378,7 @@ function App() {
         {/* Education Section */}
         <motion.section
           id="education"
-          className="relative py-20 flex flex-col items-center justify-center overflow-hidden"
+          className="relative py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -387,7 +403,7 @@ function App() {
           </div>
 
           <motion.h2 
-            className="text-5xl font-bold mb-12 relative z-10"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-12 text-center relative z-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -440,7 +456,7 @@ function App() {
         {/* Projects Section */}
         <motion.section
           id="projects"
-          className="relative py-20 flex flex-col items-center justify-center overflow-hidden"
+          className="relative py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -451,7 +467,7 @@ function App() {
           }}
         >
           <motion.h2 
-            className="text-5xl font-bold mb-12"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-12 text-center"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -461,7 +477,7 @@ function App() {
             Projects
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 w-full max-w-6xl">
             {[
               {
                 title: "Heart Disease Prediction",
@@ -531,7 +547,7 @@ function App() {
         {/* Contact Section */}
         <motion.section
           id="contact"
-          className="relative py-20 flex flex-col items-center justify-center overflow-hidden"
+          className="relative py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center overflow-hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -557,7 +573,7 @@ function App() {
           </div>
 
           <motion.h2 
-            className="text-5xl font-bold mb-12 relative z-10"
+            className="text-2xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-12 text-center relative z-10"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
